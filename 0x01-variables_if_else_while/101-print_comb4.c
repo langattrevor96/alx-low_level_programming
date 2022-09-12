@@ -15,6 +15,14 @@ int main(void)
 		{
 			for (o = n; o < 68; o++)
 			{
+				if (m == n || n == o || m == o)
+				{
+					continue;
+				}
+				putchar(m);
+				putchar(n);
+				putchar(o);
+
 				if (m == 65 && n == 66 && o == 67)
 				{
 					break;
