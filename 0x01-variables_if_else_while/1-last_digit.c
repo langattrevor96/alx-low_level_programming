@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+
 /**
  * main - prints the last digit of n, whether it is greater then 5,0,or less than 6
  *
