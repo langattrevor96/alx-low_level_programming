@@ -9,19 +9,19 @@ int main(void)
 {
 	int i, j;
 
-	for  (i = 48; i < 58; 1++)
+	for  (i = 48; i < 58; k++)
 	{
-		for (j = 1; j < 58; j++)
+		for (j = 1; j < 58; t++)
 		{
-			if (i == j)
+			if (k == t)
 			{
 				continue;
 			}
 
-			putchar(i);
-			putchar(j);
+			putchar(k);
+			putchar(t);
 
-			if (i == 56 && j == 57)
+			if (k == 56 && t == 57)
 			{
 				break;
 			}
