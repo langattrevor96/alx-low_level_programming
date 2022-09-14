@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * mian - prints if integer is positive or negative
- * return: 0
+ * main - prints if integer is positive or negative
+ * Return: 0
  */
 int main(void)
 {
@@ -10,7 +10,7 @@ int main(void)
 	
 	i = 0;
 
-	poistive_or_negative(i);
+	positive_or_negative(i);
 	return (0);
 }
 
