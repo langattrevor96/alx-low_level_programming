@@ -1,27 +1,46 @@
 #!/usr/bin/python3
-"""Defines an island perimter measuring function."""
 
 def island_perimeter(grid):
-    """Return the perimter of an island.
-    The grid represents water by 0  and land by 1
-    Args:
-        grid (list): Alist of integers  representing an island.
-    Returns:
-        The perimter of the island defined in grid.
     """
-    c = 0
-    length = len(grid) - 1
-    width = len(grid[0]) - 1
+    Calculate the perimeter of the island described in grid.
 
-    for i, r in enumerate(grid):
-    for j, n in enumerate(r):
-       if n == 1:
-           if i == 0 or grid[i - 1][j] != 1:
-               c += 1
-           if j == 0 or grid[i][j - 1] != 1:
-               c += 1
-           if j == width or grid[i][j + 1] != 1:
-               c += 1
-           if i == length or grid[i + 1][j] != 1:
-               c += 1
-    return c
+    Args:
+    - grid (List[List[int]]): a rectangular grid of integers representing the island
+
+    Returns:
+    - int: the perimeter of the island
+
+    Raises:
+    - ValueError: if the grid is not rectangular or is not completely surrounded by water,
+                  or if there is more than one island or there are lakes
+
+    """
+    # Check that the grid is rectangular and completely surrounded by water
+    rows = len(grid)
+    cols = len(grid[0])
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == 1:
+                if r == 0 or c == 0 or r == rows - 1 or c == cols - 1:
+                    raise ValueError("Grid is not completely surrounded by water.")
+                if r > 0 and grid[r-1][c] == 0:
+                    raise ValueError("Grid contains a lake.")
+                if c > 0 and grid[r][c-1] == 0:
+                    raise ValueError("Grid contains a lake.")
+                if r < rows - 1 and grid[r+1][c] == 0:
+                    raise ValueError("Grid contains a lake.")
+                if c < cols - 1 and grid[r][c+1] == 0:
+                    raise ValueError("Grid contains a lake.")
+
+    # Calculate the perimeter of the island
+    perimeter = 0
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == 1:
+                perimeter += 4
+                if r > 0 and grid[r-1][c] == 1:
+                    perimeter -= 2
+                if c > 0 and grid[r][c-1] == 1:
+                    perimeter -= 2
+
+    return perimeter
